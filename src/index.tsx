@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Registration from "./Registration";
+import Interface from "./Pages/Interface";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Registration/> 
+  },
+  {
+    path: "about",
+    element: <Interface/>
+  },
+]);
 
-
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+createRoot(document.getElementById('root') as any).render(
+  <RouterProvider router={router} />
 );
-root.render(
-    <App />
-);
-
